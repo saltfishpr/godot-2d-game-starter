@@ -1,29 +1,26 @@
 class_name MainMenu
 extends Control
 
-const NO_VERSION_NAME : String = "0.0.0"
+const NO_VERSION_NAME: String = "0.0.0"
 
 ## Defines the path to the game scene. Hides the play button if empty.
-@export_file("*.tscn") var game_scene_path : String
-@export var options_packed_scene : PackedScene
-@export var credits_packed_scene : PackedScene
+@export_file("*.tscn") var game_scene_path: String
+@export var options_packed_scene: PackedScene
+@export var credits_packed_scene: PackedScene
 @export_group("Version")
 ## Displays the value of `application/config/version`, set in project settings.
-@export var show_version : bool = true
+@export var show_version: bool = true
 ## Prefixes the value of `application/config/version` when displaying to the user.
-@export var version_prefix : String = "v"
+@export var version_prefix: String = "v"
 
 var options_scene
 var credits_scene
 var sub_menu
 
-func load_scene(scene_path : String):
-	SceneLoader.load_scene(scene_path)
-
 func play_game():
 	SceneLoader.load_scene(game_scene_path)
 
-func _open_sub_menu(menu : Control):
+func _open_sub_menu(menu: Control):
 	sub_menu = menu
 	sub_menu.show()
 	%BackButton.show()
@@ -37,10 +34,10 @@ func _close_sub_menu():
 	%BackButton.hide()
 	%MenuContainer.show()
 
-func _event_is_mouse_button_released(event : InputEvent):
+func _event_is_mouse_button_released(event: InputEvent):
 	return event is InputEventMouseButton and not event.is_pressed()
 
-func _event_skips_intro(event : InputEvent):
+func _event_skips_intro(event: InputEvent):
 	return event.is_action_released("ui_accept") or \
 		event.is_action_released("ui_select") or \
 		event.is_action_released("ui_cancel") or \
@@ -55,7 +52,7 @@ func _setup_for_web():
 		%ExitButton.hide()
 
 func _setup_version_name():
-	var version_name : String = ProjectSettings.get_setting("application/config/version", NO_VERSION_NAME)
+	var version_name: String = ProjectSettings.get_setting("application/config/version", NO_VERSION_NAME)
 	if version_name.is_empty():
 		version_name = NO_VERSION_NAME
 	AppLog.version_opened(version_name)

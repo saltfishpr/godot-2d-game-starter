@@ -1,7 +1,7 @@
 extends Control
 
-@export var win_scene : PackedScene
-@export var lose_scene : PackedScene
+@export var win_scene: PackedScene
+@export var lose_scene: PackedScene
 
 func _ready():
 	InGameMenuController.scene_tree = get_tree()
