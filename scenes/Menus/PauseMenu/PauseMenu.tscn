@@ -2,9 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://addons/maaacks_game_template/extras/scenes/PauseMenu/PauseMenu.tscn" id="1_mxjwu"]
 [ext_resource type="Script" path="res://scenes/Menus/PauseMenu/PauseMenu.gd" id="2_lor77"]
-[ext_resource type="PackedScene" uid="uid://dbdcxpictt4vm" path="res://scenes/Menus/OptionsMenu/MiniOptionsMenuWithReset.tscn" id="3_57ffi"]
+[ext_resource type="PackedScene" uid="uid://dh2x85g71a16o" path="res://scenes/Menus/OptionsMenu/MasterOptionsMenuWithTabs.tscn" id="3_x2haa"]
 
 [node name="PauseMenu" instance=ExtResource("1_mxjwu")]
 script = ExtResource("2_lor77")
-options_packed_scene = ExtResource("3_57ffi")
+options_packed_scene = ExtResource("3_x2haa")
 main_menu_scene = "res://scenes/Menus/MainMenu/MainMenuWithAnimations.tscn"
